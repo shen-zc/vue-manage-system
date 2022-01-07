@@ -5,5 +5,8 @@ export default {
     plugins: [vue()],
     optimizeDeps: {
         include: ['schart.js']
+    },
+    configureWebpack: {
+        devtool: "source-map"
     }
 }

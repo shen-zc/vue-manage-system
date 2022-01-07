@@ -3,6 +3,7 @@
   "version": "5.1.0",
   "private": true,
   "scripts": {
+    "dev2": "webpack serve --progress --config ./webpack.config.js",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
@@ -10,7 +11,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "1.0.2-beta.52",
-    "vue": "^3.1.2",
     "vue-cropperjs": "^5.0.0",
     "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.10",
@@ -19,9 +19,20 @@
     "wangeditor": "^4.7.4"
   },
   "devDependencies": {
-    "vite": "2.3.7",
+    "@babel/core": "^7.16.7",
     "@vitejs/plugin-vue": "^1.2.3",
-    "@vue/compiler-sfc": "^3.1.2"
+    "@vue/compiler-sfc": "^3.2.26",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "html-loader": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.6",
+    "vite": "2.3.7",
+    "vue": "^3.2.26",
+    "vue-loader": "^17.0.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
   },
   "browserslist": [
     "> 1%",
