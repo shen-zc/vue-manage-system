@@ -48,7 +48,12 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options:{
+              publicPath: 'assets/'
+            }
+          },
           'css-loader'
         ]
       },
@@ -56,7 +61,12 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options:{
+              publicPath: 'assets/'
+            }
+          },
           // 'style-loader',
           'css-loader',
           'sass-loader',
@@ -65,10 +75,11 @@ module.exports = {
       {
         test:/\.(png|jpg|jpeg|gif|ico|woff|svg|eot|ttf|woff2)$/,
         exclude: /node_modules/,
+        type:'asset/resource',
         // use:'url-loader?limit=8192&name=images/[name].[ext]'
         use: [
-          'url-loader?limit=8192&name=images/[name].[ext]',
-          'file-loader?name=[name].[ext]'
+          'url-loader?limit=8192&name=assets/img/[name].[ext]',
+          'file-loader?name=assets/img/[name].[ext]'
         ]
       },
     ],
@@ -87,8 +98,8 @@ module.exports = {
     // 处理 @import xxx.css
     new MiniCssExtractPlugin({
       // 类似 webpackOptions.output里面的配置 可以忽略
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: 'assets/css/[name].css',
+      chunkFilename: 'assets/css/[id].css',
     }),
   ],
 
