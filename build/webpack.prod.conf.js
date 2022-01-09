@@ -23,6 +23,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
+  entry: config.build.entry,
+
   /* https://github.com/vuejs/vue-style-loader/issues/50 */
   module: {
     rules: utils.styleLoaders({
@@ -105,7 +108,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, '../static'),
+          from: path.resolve(__dirname, '../src/assets'),
           to: config.build.assetsSubDirectory,
           globOptions: {
             ignore: ['.*']

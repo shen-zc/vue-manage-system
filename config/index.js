@@ -5,6 +5,11 @@ const path = require('path')
 
 console.log(path.resolve(__dirname, '../src/main.js'))
 
+/* 解析 */
+const resolve = (dir) => {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   /* 编译生产模式 */
   build: {
@@ -58,7 +63,7 @@ module.exports = {
     notifyOnErrors: true, /* 开启错误提示 */
     poll: false, // 监视文件 https://webpack.docschina.org/configuration/watch/
 
-    showEslintErrorsInOverlay: true, // eslint错误是否显示在console终端上
+    showEslintErrorsInOverlay: false, // eslint错误是否显示在console终端上
     useEslint: false /* 是否使用eslint */,
 
     /**
@@ -97,8 +102,8 @@ module.exports = {
     notifyOnErrors: true, /* 开启错误提示 */
     poll: false, // 监视文件 https://webpack.docschina.org/configuration/watch/
 
-    showEslintErrorsInOverlay: true, // eslint错误是否显示在console终端上
-    useEslint: true /* 是否使用eslint */,
+    showEslintErrorsInOverlay: false, // eslint错误是否显示在console终端上
+    useEslint: false /* 是否使用eslint */,
 
     /**
      * Source Maps
