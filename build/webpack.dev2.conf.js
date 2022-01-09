@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 /* 个人配置信息 */
-const config = require('../config')
+const config_root = require('../config')
 
 /* 工具 */
 const utils = require('./utils')
@@ -23,18 +23,20 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+const config = config_root.dev2
+
 /* 开发配置 */
-const devWebpackConfig = merge(baseWebpackConfig, {
+const dev2WebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
-  entry: config.dev.entry,
+  entry: config.entry,
   /* https://github.com/vuejs/vue-style-loader/issues/50 */
   module: {
     rules: utils.styleLoaders({
-      sourceMap: config.dev.cssSourceMap
+      sourceMap: config.cssSourceMap
     })
   },
   // 开发模式如何生成source map
-  devtool: config.dev.devtool,
+  devtool: config.devtool,
 
   // these devServer options should be customized in /config/index.js
   /* 个人信息配置选项 */
@@ -44,22 +46,22 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       rewrites: [
         {
           from: /.*/,
-          to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
+          to: path.posix.join(config.assetsPublicPath, 'index.html')
         }
       ]
     },
     hot: true /* 启用 webpack 的模块热替换特性 */,
     compress: true /* 一切服务都启用gzip 压缩 */,
-    host: HOST || config.dev.host /* 域名 */,
-    port: PORT || config.dev.port /* 端口 */,
-    open: config.dev.autoOpenBrowser /* 是否自动打开浏览器 */,
-    // overlay: config.dev.errorOverlay
+    host: HOST || config.host /* 域名 */,
+    port: PORT || config.port /* 端口 */,
+    open: config.autoOpenBrowser /* 是否自动打开浏览器 */,
+    // overlay: config.errorOverlay
     //   ? {
     //       warnings: false /* 警告不覆盖 */,
     //       errors: true /* 错误全屏覆盖 */
     //     }
     //   : false /* 当出现编译器错误或警告时，在浏览器中显示全屏覆盖。默认情况下禁用。如果您只想显示编译器错误 */,
-    proxy: config.dev.proxyTable /* 跨域配置 */
+    proxy: config.proxyTable /* 跨域配置 */
   },
   // https://webpack.docschina.org/configuration/stats/#stats-presets  移除了quiet
   // 除了初始启动信息外，什么都不会写入控制台。 这也意味着来自webpack的错误或警告是不可见的。
@@ -70,7 +72,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   bail: true,
   // 在运行 webpack 时，通过使用 --progress 标志，来验证文件修改后，是否没有通知 webpack。如果进度显示保存，但没有输出文件，则可能是配置问题，而不是文件监视问题
   watchOptions: {
-    poll: config.dev.poll,
+    poll: config.poll,
     ignored: /node_modules/
   },
   plugins: [
@@ -136,6 +138,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 //   })
 // })
 
-module.exports = devWebpackConfig
+module.exports = dev2WebpackConfig
 
 console.log('debug')
