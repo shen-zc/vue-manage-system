@@ -26,9 +26,10 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: false, // 是否生成sourcemap
+    productionSourceMap: true, // 是否生成sourcemap
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
+    // devtool: 'source-map',
 
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -73,7 +74,8 @@ module.exports = {
     productionSourceMap: true, // 是否生成sourcemap
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'eval-cheap-module-source-map',  /* 开发者控制台的信息如何展示 */
+    // devtool: 'eval-cheap-module-source-map',  /* 开发者控制台的信息如何展示 */
+    // devtool: 'eval-source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help

@@ -33,8 +33,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       sourceMap: config.dev.cssSourceMap
     })
   },
+
   // 开发模式如何生成source map
-  devtool: config.dev.devtool,
+  devtool: config.dev.productionSourceMap
+    ? config.dev.devtool
+    : false /* 是否生成SourceMap */,
 
   // these devServer options should be customized in /config/index.js
   /* 个人信息配置选项 */
@@ -90,8 +93,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
-    })
+    }),
+    // new webpack.SourceMapDevToolPlugin({
+    //   filename: '[file].map',
+    //   include: ['main.js'],
+    //   exclude: ['vendor.js'],
+    //   columns: false
+    // })
   ],
+
   optimization: {
     splitChunks: {
       chunks: 'all'

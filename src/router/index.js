@@ -1,6 +1,32 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import Home from "../views/Home.vue";
 
+
+/*
+ * 为了调试 begin
+ */
+
+import Dashboard from  "../views/Dashboard.vue"; /* webpackChunkName: "dashboard" */
+import BaseTable from  "../views/BaseTable.vue"; /* webpackChunkName: "table" */
+import BaseCharts from  "../views/BaseCharts.vue"; /* webpackChunkName: "charts" */
+import BaseForm from  "../views/BaseForm.vue"; /* webpackChunkName: "form" */
+import Tabs from  "../views/Tabs.vue"; /* webpackChunkName: "tabs" */
+import Donate from  "../views/Donate.vue"; /* webpackChunkName: "donate" */
+import Permission from  "../views/Permission.vue"; /* webpackChunkName: "permission" */
+import I18n from  "../views/I18n.vue"; /* webpackChunkName: "i18n" */
+import Upload from  "../views/Upload.vue"; /* webpackChunkName: "upload" */
+import Icon from  "../views/Icon.vue"; /* webpackChunkName: "icon" */
+import _404 from  "../views/404.vue"; /* webpackChunkName: "404" */
+import _403 from  "../views/403.vue"; /* webpackChunkName: "403" */
+import User from  "../views/User.vue"; /* webpackChunkName: "user" */
+import Editor from  "../views/Editor.vue"; /* webpackChunkName: "editor" */
+import Login from  "../views/Login.vue"; /* webpackChunkName: "login" */
+
+/*
+ * 为了调试 end
+ */
+
+
 const routes = [
     {
         path: '/',
